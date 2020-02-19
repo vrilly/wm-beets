@@ -1,0 +1,35 @@
+directory: /path/to/your/walkman/MUSIC
+library: /path/to/your/walkman/library.db
+ui:
+    color: yes
+paths:
+    default: $albumartist/$year $album%aunique{}/$track - $title
+    singleton: Non-Album/$artist - $title
+    comp: Compilations/$year - $album%aunique{}/$track - $title
+pluginpath:
+    - ~/.config/beets
+plugins: setlister smartplaylist fetchart embedart
+fetchart:
+    maxwidth: 800
+setlister:
+    relative_to: /path/to/your/walkman
+    playlist_dir: /path/to/your/walkman/MUSIC/setlists
+    api_key: if you think setlister is cool insert your API key, otherwise leave this part of config out
+smartplaylist:
+    relative_to: /path/to/your/walkman
+    playlist_dir: /path/to/your/walkman/MUSIC/playlists
+    playlists:
+        - name: random_chill.m3u
+          query: ['genre:lounge', 'artist:Spinvis', 'genre:"Country Rock"']
+
+        - name: 90.m3u
+          query: 'year:1990..1999 genre+ year+'
+
+        - name: 80.m3u
+          query: 'year:1980..1989 genre+ year+'
+
+        - name: 00.m3u
+          query: 'year:2000..2009 genre+ year+'
+
+        - name: 10.m3u
+          query: 'year:2010..2019 genre+ year+'
